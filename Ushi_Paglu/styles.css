@@ -1,0 +1,214 @@
+/* Glassmorphism for tiles */
+.tile {
+    @apply bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 rounded-lg p-6 text-center text-red-600 font-bold text-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-opacity-30;
+}
+
+/* Day sections */
+.day-section {
+    @apply min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-pink-100 to-red-100;
+}
+
+/* Back button */
+.back-btn {
+    @apply absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700;
+}
+
+/* Buttons */
+.btn {
+    @apply bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-700;
+}
+
+.btn-yes {
+    @apply bg-green-500 text-white px-4 py-2 rounded mr-4;
+}
+
+.btn-no {
+    @apply bg-red-500 text-white px-4 py-2 rounded cursor-pointer;
+}
+
+/* Chocolates */
+.chocolate {
+    @apply text-4xl cursor-pointer m-2 hover:scale-110;
+}
+
+/* Teddy SVG */
+#teddy-svg {
+    cursor: pointer;
+}
+
+/* Hug overlay */
+#hug-overlay {
+    z-index: 10;
+}
+
+/* Hearts particles */
+.hearts-particles::before {
+    content: '❤️❤️❤️';
+    font-size: 2rem;
+    animation: float 2s infinite;
+}
+
+/* Floating hearts background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hearts-container::before,
+.hearts-container::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 2rem;
+    animation: float-hearts 10s infinite linear;
+}
+
+.hearts-container::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hearts-container::after {
+    top: 50%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+/* Keyframes */
+@keyframes float-hearts {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Rose animation */
+.rose {
+    position: absolute;
+    font-size: 2rem;
+    animation: grow 1s ease-out;
+}
+
+@keyframes grow {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sticker for Propose Day */
+.sticker {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: pop-in 0.5s ease-out forwards;
+}
+
+@keyframes pop-in {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* 3D Button Styling */
+.btn-3d {
+    background: linear-gradient(145deg, #FFB6C1, #DC143C); /* Gradient from pastel pink to deep red */
+    border: none;
+    border-radius: 12px; /* Rounded corners for a modern look */
+    box-shadow: 
+        0 8px 15px rgba(0, 0, 0, 0.2), /* Outer shadow for depth */
+        inset 0 1px 0 rgba(255, 255, 255, 0.3), /* Inner highlight for shine */
+        0 4px 0 #B22222; /* Bottom shadow for 3D base */
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Text depth */
+    transition: all 0.2s ease; /* Smooth hover/press animation */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* For potential inner effects */
+}
+
+.btn-3d:hover {
+    box-shadow: 
+        0 12px 20px rgba(0, 0, 0, 0.3), /* Deeper shadow on hover */
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 6px 0 #B22222; /* Slightly raised */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+.btn-3d:active {
+    box-shadow: 
+        inset 0 4px 8px rgba(0, 0, 0, 0.3), /* Pressed-in shadow */
+        0 2px 0 #B22222; /* Flattened base */
+    transform: translateY(2px); /* Press down */
+}
+
+/* Gift Box Styling */
+.gift-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.box-lid {
+    font-size: 4rem; /* Size for the emoji; adjust if using an image */
+    z-index: 2; /* Above the teddy */
+    transition: transform 0.5s ease; /* For opening animation */
+}
+
+/* Teddy Hidden State */
+.teddy-hidden {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Hidden and scaled down */
+    opacity: 0;
+    transition: all 0.8s ease; /* Smooth reveal */
+}
+
+/* Teddy Pop-Out Animation */
+.teddy-pop {
+    transform: translate(-50%, -50%) scale(1.2); /* Pop out larger */
+    opacity: 1;
+    animation: bounce 0.6s ease; /* Add a bounce for extra fun */
+}
+
+.box-open .box-lid {
+    transform: translateY(-20px) rotate(10deg); /* Simulate lid opening */
+}
+
+/* Bounce Keyframe for Pop-Out */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, -50%) scale(1.2) translateY(0); }
+    40% { transform: translate(-50%, -50%) scale(1.2) translateY(-10px); }
+    60% { transform: translate(-50%, -50%) scale(1.2) translateY(-5px); }
+}

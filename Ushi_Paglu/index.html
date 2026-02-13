@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ushi's Valentine's Week</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-red-100 font-['Dancing_Script'] overflow-hidden">
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container"></div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="min-h-screen flex flex-col items-center justify-center p-4">
+        <h1 class="text-4xl md:text-6xl text-red-600 mb-8 text-center">Valentine's Week</h1>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl">
+            <div class="tile btn-3d" data-day="rose">Rose Day</div>
+            <div class="tile btn-3d" data-day="propose">Propose Day</div>
+            <div class="tile btn-3d" data-day="chocolate">Chocolate Day</div>
+            <div class="tile btn-3d" data-day="teddy">Teddy Day</div>
+            <div class="tile btn-3d" data-day="promise">Promise Day</div>
+            <div class="tile btn-3d" data-day="hug">Hug Day</div>
+            <div class="tile btn-3d" data-day="kiss">Kiss Day</div>
+            <div class="tile btn-3d" data-day="valentine">Valentine's Day</div>
+        </div>
+    </div>
+
+    <!-- Rose Day -->
+    <div id="rose-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Rose Day</h2>
+        <p>Plant your roses (from me) on the screen cutie</p>
+        <div id="garden" class="w-full h-96 bg-green-200 relative overflow-hidden"></div>
+    </div>
+
+    <!-- Propose Day -->
+    <div id="propose-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Propose Day</h2>
+        <p>Ushi, Will you be my Valentine?</p>
+        <button id="yes-btn" class="btn-yes btn-3d">Yes</button>
+        <button id="no-btn" class="btn-no btn-3d">No</button>
+    </div>
+
+    <!-- Chocolate Day -->
+    <div id="chocolate-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+<!-- Repeat for all sections -->
+        <h2 class="text-3xl text-red-600 mb-4">Chocolate Day</h2>
+        <p>Grab a chocolate for a sweet compliment!</p>
+        <div class="chocolates flex flex-wrap justify-center">
+            <div class="chocolate">🍫</div>
+            <div class="chocolate">🍫</div>
+            <div class="chocolate">🍫</div>
+            <div class="chocolate">🍫</div>
+        </div>
+        <p id="compliment" class="mt-4 text-lg"></p>
+    </div>
+
+    <!-- Teddy Day -->
+<div id="teddy-day" class="day-section hidden">
+    <button class="back-btn btn-3d">Back to Home</button>
+    <h2 class="text-3xl text-red-600 mb-4">Teddy Day</h2>
+    <p>Unwrap me</p>
+    <div id="gift-box" class="gift-box">
+        <div class="box-lid">🎁</div> <!-- Gift box emoji; replace with an image if preferred -->
+        <svg id="teddy-svg" width="200" height="200" viewBox="0 0 200 200" class="teddy-hidden">
+            <!-- Simple SVG Teddy Bear (unchanged) -->
+            <circle cx="100" cy="80" r="40" fill="#8B4513"/>
+            <circle cx="85" cy="70" r="5" fill="#000"/>
+            <circle cx="115" cy="70" r="5" fill="#000"/>
+            <ellipse cx="100" cy="90" rx="10" ry="5" fill="#FF69B4"/>
+            <rect x="90" y="120" width="20" height="40" fill="#8B4513"/>
+            <circle cx="80" cy="140" r="10" fill="#8B4513"/>
+            <circle cx="120" cy="140" r="10" fill="#8B4513"/>
+        </svg>
+    </div>
+</div>
+
+    <!-- Promise Day -->
+    <div id="promise-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Promise Day</h2>
+        <p>Make a promise:</p>
+        <input id="promise-input" type="text" class="border p-2 rounded mb-4" placeholder="I promise...">
+        <button id="sign-btn" class="btn btn-3d">Sign It</button>
+        <div id="certificate" class="mt-4 p-4 bg-white rounded shadow hidden">
+            <p id="promise-text"></p>
+            <p>Signed with love! ❤️</p>
+        </div>
+    </div>
+
+    <!-- Hug Day -->
+    <div id="hug-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Hug Day</h2>
+        <button id="hug-btn" class="btn btn-3d">Give Me a Hug</button>
+        <div id="hug-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-white text-4xl">Hug!</div>
+            <div class="hearts-particles"></div>
+        </div>
+    </div>
+
+    <!-- Kiss Day -->
+    <div id="kiss-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Kiss Day</h2>
+        <p>As I am not there right now So leave the kisses! on the screen.</p>
+        <canvas id="kiss-canvas" width="400" height="300" class="border"></canvas>
+    </div>
+
+    <!-- Valentine's Day -->
+    <div id="valentine-day" class="day-section hidden">
+        <button class="back-btn btn-3d">Back to Home</button>
+        <h2 class="text-3xl text-red-600 mb-4">Valentine's Day</h2>
+        <div class="slideshow w-full max-w-md h-96 md:h-[500px]">
+            <img src="C:\Users\sudip\Desktop\Ushi_Paglu\Pictures\photo1.jpeg" alt="Romantic Memory 1" class="slide">
+            <img src="C:\Users\sudip\Desktop\Ushi_Paglu\Pictures\photo2.jpeg" alt="Romantic Memory 2" class="slide hidden">
+            <img src="C:\Users\sudip\Desktop\Ushi_Paglu\Pictures\photo3.jpeg" alt="Romantic Memory 3" class="slide hidden">
+        </div>
+        <button id="hearts-btn" class="btn btn-3d mt-4">Rain Hearts</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
